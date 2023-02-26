@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "chrome-extension-name",
+    "description": "chrome extension",
+    "version": "0.0.1",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "/background.js"
+    },
+    "host_permissions": [
+        "http://localhost:3000/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "/content.js"
+            ]
+        }
+    ]
+}

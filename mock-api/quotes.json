@@ -1,0 +1,19 @@
+{
+    "quotes": [
+        {
+            "id": 1,
+            "text": "Be the change that you wish to see in the world.",
+            "author": "Mahatma Gandhi"
+        },
+        {
+            "id": 2,
+            "text": "If you want to live a happy life, tie it to a goal, not to people or things.",
+            "author": "Albert Einstein"
+        },
+        {
+            "id": 3,
+            "text": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "author": "Winston S. Churchill"
+        }
+    ]
+}
