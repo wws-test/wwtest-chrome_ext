@@ -1,4 +1,15 @@
 # Chrome extension with Vue3 + Tailwind + Vuetify 
+This is a very powerful start point for a chrome extension. 
+- Vue3
+- Vuetify
+- Tailwind
+
+Also demonstrates how to fetch data from a server and how communication from popup, background and content scripts work (Check the log functionality)
+Sample:
+![image](https://user-images.githubusercontent.com/1836450/221446026-091d35d9-fb18-4a9f-9765-b33220b41c68.png)
+
+![image](https://user-images.githubusercontent.com/1836450/221446050-239d9e47-875f-4051-90d5-03cde3f4f159.png)
+
 
 ## Project setup
 ```
