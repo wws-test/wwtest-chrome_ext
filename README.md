@@ -1,24 +1,28 @@
-# vs-user
+# Chrome extension with Vue3 + Tailwind + Vuetify 
 
 ## Project setup
 ```
-yarn install
+npm install -g json-server
+npm install
 ```
 
 ### Compiles and hot-reloads for development
+In one terminal start the mock API that serves some quotes:
 ```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
+cd mock-api
+json-server --watch quotes.json
 ```
 
-### Lints and fixes files
+Compiles and hot-reloads for development
 ```
-yarn lint
+npm run build-watch
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Install dist folder as chrome extension 
+- chrome://extensions/
+
+- Make sure you are in Developer mode
+
+- Import uncompress extension
+
+- Test on a tab that has a real website URL (google.com for example), otherwise the background script wont be able to communicate with the content.
