@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-card>
-      <QuoteDisplay />
+      <Form />
     </v-card>
   </v-app>
 </template>
@@ -10,11 +10,12 @@
 
 import '@/assets/css/tailwind.css';
 import '@/assets/css/popup.css';
-import QuoteDisplay from '@/components/QuoteDisplay.vue';
+import Form from '@/components/FormComponent.vue';
+
 export default {
   name: 'App',
   components: {
-    QuoteDisplay
+    Form
   },
 };
 </script>

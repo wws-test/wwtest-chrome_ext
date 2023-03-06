@@ -1,8 +1,13 @@
 {
     "manifest_version": 3,
-    "name": "chrome-extension-name",
-    "description": "chrome extension",
+    "name": "Trun快速测试",
+    "description": "快速测试工具",
+    "icons": {
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
     "version": "0.0.1",
+
     "action": {
         "default_popup": "popup.html"
     },
@@ -10,8 +15,10 @@
         "service_worker": "background.js"
     },
     "host_permissions": [
-        "http://localhost:3000/*"
+        "*://*/*"
     ],
+
+
     "content_scripts": [
         {
             "matches": [
@@ -19,6 +26,7 @@
             ],
             "js": [
                 "/content.js"
+
             ]
         }
     ]

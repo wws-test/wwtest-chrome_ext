@@ -9,15 +9,14 @@ import '@/assets/css/popup.css';
 import Vuetify from '../plugins/vuetify';
 
 
-const api = axios.create({
-    baseURL: 'http://localhost:3000',
+const apiClient = axios.create({
+    baseURL: 'http://10.50.2.202:10083',
 });
 
 const app = createApp(App);
 
 app.use(Vuetify)
-
-app.use(VueAxios, api);
+app.use(VueAxios, apiClient);
 
 // Send log messages to background.js
 app.config.globalProperties.$log = function (message) {

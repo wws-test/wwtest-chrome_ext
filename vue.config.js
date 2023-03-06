@@ -25,6 +25,68 @@ chromeName.forEach((name) => {
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
+// module.exports = {
+//   pages,
+//   filenameHashing: false,
+//   chainWebpack: (config) => {
+//     config.plugin('copy').use(require('copy-webpack-plugin'), [
+//       {
+//         patterns: [
+//           {
+//             from: path.resolve(`src/manifest.${process.env.NODE_ENV}.json`),
+//             to: `${path.resolve('dist')}/manifest.json`
+//           },
+//           {
+//             from: path.resolve(`public/`),
+//             to: `${path.resolve('dist')}/`
+//           }
+//         ]
+//       }
+//     ])
+//
+//     // Add PostCSS
+//     const postcssRule = config.module.rule('postcss')
+//     postcssRule.uses.clear()
+//     postcssRule
+//       .use('vue-style-loader')
+//       .loader('vue-style-loader')
+//       .end()
+//       .use('css-loader')
+//       .loader('css-loader')
+//       .end()
+//       .use('postcss-loader')
+//       .loader('postcss-loader')
+//       .options({
+//         postcssOptions: {
+//           ident: 'postcss',
+//           plugins: [
+//             require('tailwindcss'),
+//             require('autoprefixer'),
+//           ],
+//         },
+//       })
+//   },
+//
+//   configureWebpack: {
+//     output: {
+//       filename: `[name].js`,
+//       chunkFilename: `[name].js`
+//     },
+//     devtool: isDevMode ? 'inline-source-map' : false,
+//   },
+//   css: {
+//     loaderOptions: {
+//       postcss: {
+//         postcssOptions: {
+//           plugins: [
+//             require('tailwindcss'),
+//             require('autoprefixer')
+//           ]
+//         }
+//       },
+//     },
+//   }
+// }
 module.exports = {
   pages,
   filenameHashing: false,
@@ -48,23 +110,37 @@ module.exports = {
     const postcssRule = config.module.rule('postcss')
     postcssRule.uses.clear()
     postcssRule
-      .use('vue-style-loader')
-      .loader('vue-style-loader')
-      .end()
-      .use('css-loader')
-      .loader('css-loader')
-      .end()
-      .use('postcss-loader')
-      .loader('postcss-loader')
-      .options({
-        postcssOptions: {
-          ident: 'postcss',
-          plugins: [
-            require('tailwindcss'),
-            require('autoprefixer'),
-          ],
-        },
-      })
+        .use('vue-style-loader')
+        .loader('vue-style-loader')
+        .end()
+        .use('css-loader')
+        .loader('css-loader')
+        .end()
+        .use('postcss-loader')
+        .loader('postcss-loader')
+        .options({
+          postcssOptions: {
+            ident: 'postcss',
+            plugins: [
+              require('tailwindcss'),
+              require('autoprefixer'),
+            ],
+          },
+        })
+
+    // Add icon files
+    config.plugin('copy').tap((args) => {
+      args[0].patterns.push(
+          {
+            from: path.resolve(__dirname, 'public/icons'),
+            to: path.resolve(__dirname, 'dist/icons'),
+            globOptions: {
+              ignore: ['.*']
+            }
+          }
+      )
+      return args
+    })
   },
   configureWebpack: {
     output: {

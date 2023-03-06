@@ -1,4 +1,5 @@
 console.log('hello world background todo something~')
+console.log('hello world background todo something~')
 // background.js
 
 function getActiveTab(tabs) {
