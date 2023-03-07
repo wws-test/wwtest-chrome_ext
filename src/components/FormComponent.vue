@@ -10,7 +10,7 @@
     <div class="flex items-center mb-4">
       <label class="mr-2 text-white">环境:</label>
       <select v-model="select2" class="w-1/2 rounded-md border-2 border-[#0d9488] bg-[#2dd4bf] text-white p-2">
-        <option v-for="option in options2" :value="option.id" :key="option.id" class="bg-[#0d9488] text-white">{{ option.domain }}</option>
+        <option v-for="option in options2" :value="option.domain" :key="option.id" class="bg-[#0d9488] text-white">{{ option.domain }}</option>
       </select>
     </div>
     <button class="bg-[#2dd4bf] hover:bg-[#2dd4bf] text-white font-bold py-2 px-4 rounded-md" @click="submit">
@@ -69,9 +69,12 @@
         // 向后端接口发送数据，完成数据的提交
         const data = {
           id: this.select1,
+          domain: this.select2,
         };
-        axios.post('http://10.50.2.202:10083/api/task/taskExcute', data)
+
+        axios.post('http://10.50.2.202:10083/api/task/taskExcutext', data)
           .then((response) => {
+            console.log(data);
             console.log(response.data);
             alert(response.data.msg)
           })
